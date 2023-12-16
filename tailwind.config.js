@@ -8,6 +8,7 @@ export default {
     extend: {
       colors: {
         customPurple: '#6941C6',
+        lightPurple: '#7F56D9',
         customBlack: '#404040',
         black:'#4E5D78',
         levelBlack:'#344054'

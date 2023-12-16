@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 interface INavbar {
   name: string;
@@ -43,8 +43,9 @@ const Navbar: React.FC<INavbar> = () => {
                     src="/src/assets/icons/navbar_logo.svg"
                     alt="Your Company"
                   />
+                  <h1 className="text-2xl font-bold text-white pl-3">Stack</h1>
                 </div>
-                <div className="hidden sm:ml-6 sm:block">
+                <div className="hidden sm:ml-6 sm:block pl-10">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
                       <a
@@ -52,8 +53,8 @@ const Navbar: React.FC<INavbar> = () => {
                         href={item.href}
                         className={classNames(
                           item.current
-                            ? "bg-gray-900 text-white"
-                            : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                            ? "bg-lightPurple text-white"
+                            : "text-gray-300 hover:bg-lightPurple hover:text-white",
                           "rounded-md px-3 py-2 text-sm font-medium"
                         )}
                         aria-current={item.current ? "page" : undefined}
@@ -67,10 +68,10 @@ const Navbar: React.FC<INavbar> = () => {
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <button
                   type="button"
-                  className="relative rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className="relative rounded-full text-gray-400 hover:text-white focus:outline-none "
                 >
                   <img
-                    className="h-5 w-auto"
+                    className="h-5 w-auto pr-5"
                     src="/src/assets/icons/search.svg"
                     alt="Your Company"
                   />
@@ -78,10 +79,10 @@ const Navbar: React.FC<INavbar> = () => {
 
                 <button
                   type="button"
-                  className="relative rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className="relative rounded-full text-gray-400 hover:text-white "
                 >
                   <img
-                    className="h-5 w-auto"
+                    className="h-5 w-auto pr-5"
                     src="/src/assets/icons/settings.svg"
                     alt="Your Company"
                   />
@@ -89,10 +90,10 @@ const Navbar: React.FC<INavbar> = () => {
 
                 <button
                   type="button"
-                  className="relative rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className="relative rounded-full text-gray-400 hover:text-white "
                 >
                   <img
-                    className="h-5 w-auto"
+                    className="h-5 w-auto pr-5"
                     src="/src/assets/icons/bell.svg"
                     alt="Your Company"
                   />
