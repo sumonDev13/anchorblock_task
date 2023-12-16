@@ -3,6 +3,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Users from "./pages/Users";
 import Dashboard from "./pages/Dashboard";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/signup" element={<Signup name={""} />} />
         <Route path="/users" element={<Users name={""} />} />
         <Route path="/dashboard" element={<Dashboard name={""} />} />
+        <Route path="/navbar" element={<Navbar name={""} />} />
       </Routes>
     </BrowserRouter>
   );
