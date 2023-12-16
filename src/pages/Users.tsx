@@ -33,6 +33,49 @@ const Users: React.FC<IUsers> = () => {
               </button>
             </div>
           </div>
+          <div className="overflow-x-auto">
+      <table className="min-w-full border border-gray-300">
+        <thead>
+          <tr className="border-b border-gray-300">
+            
+            <th className="text-left py-2 px-4">UserInfo</th>
+            <th className="text-left py-2 px-4">About</th>
+            <th className="text-left py-2 px-4">Status</th>
+            <th className="text-left py-2 px-4">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {/* Example rows */}
+          <tr className="border-b border-gray-300">
+            <td className="py-2 px-4">
+              <input type="checkbox" />
+            </td>
+            <td className="py-2 px-4">User 1 Info</td>
+            <td className="py-2 px-4">About User 1</td>
+            <td className="py-2 px-4">Active</td>
+            <td className="py-2 px-4">
+              <button className=" text-white font-bold py-1 px-2 rounded">
+                Edit
+              </button>
+            </td>
+          </tr>
+          <tr className="border-b border-gray-300">
+            <td className="py-2 px-4">
+              <input type="checkbox" />
+            </td>
+            <td className="py-2 px-4">User 2 Info</td>
+            <td className="py-2 px-4">About User 2</td>
+            <td className="py-2 px-4">Inactive</td>
+            <td className="py-2 px-4">
+              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
+                Edit
+              </button>
+            </td>
+          </tr>
+          {/* Add more rows as needed */}
+        </tbody>
+      </table>
+    </div>
         </div>
       </div>
     </>
