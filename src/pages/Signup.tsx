@@ -6,7 +6,7 @@ const SignUp: React.FC<signup> = () => {
   return (
     <>
       <div className="flex justify-center items-center h-screen">
-        <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-96">
+        <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-8 w-96">
           <div className="flex items-start mb-6">
             <img
               src="/src/assets/icons/signup_logo.svg"
@@ -21,7 +21,7 @@ const SignUp: React.FC<signup> = () => {
           <form>
             <div className="mb-4 mt-10">
               <label
-                className="block text-levelBlack text-sm text-base mb-2"
+                className="block text-levelBlack text-sm font-semibold text tracking-wide mb-2"
                 htmlFor="email"
               >
                 Email
@@ -35,7 +35,7 @@ const SignUp: React.FC<signup> = () => {
             </div>
             <div className="mb-10 mt-8 ">
               <label
-                className="block text-levelBlack text-sm font-bold mb-2"
+                className="block text-levelBlack text-sm font-semibold mb-2 text tracking-wide"
                 htmlFor="password"
               >
                 Password
