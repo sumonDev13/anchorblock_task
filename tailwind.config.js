@@ -9,7 +9,8 @@ export default {
       colors: {
         customPurple: '#6941C6',
         customBlack: '#404040',
-        black:'#4E5D78'
+        black:'#4E5D78',
+        levelBlack:'#344054'
       },
     },
   },
