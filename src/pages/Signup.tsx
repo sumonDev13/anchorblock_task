@@ -11,7 +11,7 @@ const SignUp: React.FC<signup> = () => {
           <img src="/src/assets/icons/signup_logo.svg" alt="Logo" className="h-8 mr-2" />
           <h1 className="text-3xl font-bold text-black">Stack</h1>
         </div>
-        <p className="text-lg font-semibold text-customBlack mb-4 tracking-wide">Sign up to join with Stack</p>
+        <p className="text-lg font-semibold text-customBlack mb-4 text tracking-wide">Sign up to join with Stack</p>
         <form>
           <div className="mb-4 mt-10">
             <label className="block text-levelBlack text-sm text-base mb-2" htmlFor="email">
