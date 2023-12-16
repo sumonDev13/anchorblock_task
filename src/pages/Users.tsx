@@ -55,7 +55,11 @@ const Users: React.FC<IUsers> = () => {
             <td className="py-2 px-4">Active</td>
             <td className="py-2 px-4">
               <button className=" text-white font-bold py-1 px-2 rounded">
-                Edit
+              <img
+                    className="h-8 w-auto"
+                    src="/src/assets/icons/Delete_Button.svg"
+                    alt="Your Company"
+                  />
               </button>
             </td>
           </tr>
@@ -67,12 +71,15 @@ const Users: React.FC<IUsers> = () => {
             <td className="py-2 px-4">About User 2</td>
             <td className="py-2 px-4">Inactive</td>
             <td className="py-2 px-4">
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
-                Edit
+              <button className=" text-white font-bold py-1 px-2 rounded">
+              <img
+                    className="h-8 w-auto"
+                    src="/src/assets/icons/Edit_Button.svg"
+                    alt="Your Company"
+                  />
               </button>
             </td>
           </tr>
-          {/* Add more rows as needed */}
         </tbody>
       </table>
     </div>
