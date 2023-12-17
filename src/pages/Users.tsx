@@ -1,10 +1,14 @@
 import Navbar from "../components/Navbar";
+import { useUserListMutation } from "../store/api/authApi";
 
 interface IUsers {
   name: string;
 }
 
 const Users: React.FC<IUsers> = () => {
+
+const {data:userData}=useUserListMutation()
+
   return (
     <>
       <Navbar name={""} />
@@ -46,6 +50,7 @@ const Users: React.FC<IUsers> = () => {
         </thead>
         <tbody>
           {/* Example rows */}
+          {userData?.data.map((user: IUser) => (
           <tr className="border-b border-gray-300">
             <td className="py-2 px-4">
               <input type="checkbox" />
@@ -56,7 +61,7 @@ const Users: React.FC<IUsers> = () => {
                     src="/src/assets/icons/Delete_Button.svg"
                     alt="Your Company"
                   />
-              <h2 className="pt-2">user info</h2>
+              <h2 className="pt-2">{user.first_name} {user.last_name}</h2>
               </td>
             <td className="py-2 px-2">About User 1</td>
             <td className="py-2 px-2">Active</td>
@@ -77,7 +82,7 @@ const Users: React.FC<IUsers> = () => {
               </button>
             </td>
           </tr>
-        
+         ))}
           {/* Add more rows as needed */}
         </tbody>
       </table>
