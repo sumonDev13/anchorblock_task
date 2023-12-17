@@ -35,12 +35,12 @@ export const authApi = createApi({
         };
       },
     }),
-    userList: builder.mutation({
-      query: () => "/api/users?page=2",
-    })
+    userList: builder.query<{ data: any[] }, void>({
+      query: () => "/api/users?page=2", // Modify the URL according to your API endpoint
+    }),
   }),
 });
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useSigninUserMutation,useSignupUserMutation,useVerifyUserMutation,useUserListMutation} = authApi;
+export const { useSigninUserMutation,useSignupUserMutation,useVerifyUserMutation} = authApi;

@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar";
-import { useUserListMutation } from "../store/api/authApi";
+import { useFetchUsersQuery } from "../store/api/userApi";
 
 interface IUsers {
   name: string;
@@ -7,7 +7,7 @@ interface IUsers {
 
 const Users: React.FC<IUsers> = () => {
 
-const {data:userData}=useUserListMutation()
+const {data:userData}=useFetchUsersQuery()
 
   return (
     <>
