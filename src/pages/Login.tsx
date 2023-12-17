@@ -1,7 +1,40 @@
+import { useSigninUserMutation } from "../store/api/authApi";
+import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+
+
 interface login {
   name: string;
 }
 const Login: React.FC<login> = () => {
+
+  const navigate = useNavigate();
+  const [error, setError] = useState<string>('');
+
+  const [signinUser, { data}] =
+    useSigninUserMutation();
+
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      const formData = new FormData(event.currentTarget);
+      const email = formData.get('email') as string;
+      const password = formData.get('password') as string;
+  
+      try {
+        const response = await signinUser({ email, password });
+        // Handle response as needed
+        if (response.data.success) {
+          // Navigate to another page on successful login
+          navigate('/users'); // Replace '/dashboard' with your desired route
+        } else {
+          setError('Login failed. Please try again.'); // Set appropriate error message
+        }
+      } catch (error) {
+        // Handle error
+      }
+    };
+
+
   return (
     <>
      <div className="flex justify-center items-center h-screen">
@@ -17,7 +50,7 @@ const Login: React.FC<login> = () => {
           <p className="text-lg font-semibold text-customBlack mb-4 text tracking-wide">
             Sign in to continue with Stack
           </p>
-          <form>
+          <form >
             <div className="mb-4 mt-10">
               <label
                 className="block text-levelBlack text-sm font-semibold text tracking-wide mb-2"
