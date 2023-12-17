@@ -1,8 +1,33 @@
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSignupUserMutation } from "../store/api/authApi";
+
 interface signup {
   name: string;
 }
 
 const SignUp: React.FC<signup> = () => {
+
+
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [signupUser, { data}] = useSignupUserMutation();
+
+  const handleSignup = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      const { data } = await signupUser({ email, password });
+      console.log("Signed up:", data);
+      navigate("/dashboard"); 
+    } catch (error) {
+      console.error("Signup failed:", error);
+    }
+  };
+
+
+
   return (
     <>
       <div className="flex justify-center items-center h-screen">
@@ -18,7 +43,7 @@ const SignUp: React.FC<signup> = () => {
           <p className="text-lg font-semibold text-customBlack mb-4 text tracking-wide">
             Sign up to join with Stack
           </p>
-          <form>
+          <form onSubmit={handleSignup}>
             <div className="mb-4 mt-10">
               <label
                 className="block text-levelBlack text-sm font-semibold text tracking-wide mb-2"
@@ -31,6 +56,8 @@ const SignUp: React.FC<signup> = () => {
                 id="email"
                 type="email"
                 placeholder="Enter email"
+                value={email}
+          onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className="mb-10 mt-8 ">
@@ -45,6 +72,8 @@ const SignUp: React.FC<signup> = () => {
                 id="password"
                 type="password"
                 placeholder="Enter password"
+                value={password}
+          onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <div>
