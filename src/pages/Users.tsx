@@ -37,11 +37,11 @@ const Users: React.FC<IUsers> = () => {
       <table className="min-w-full border border-gray-300">
         <thead>
           <tr className="border-b border-gray-300">
+            <th className="py-2 px-2 text-left">Checkbox</th>
+            <th className="py-2 px-2 text-left">UserInfo</th>
+            <th className="py-2 px-2 text-left">About</th>
+            <th className="py-2 px-2 text-left">Status</th>
             
-            <th className="text-left py-2 px-4">UserInfo</th>
-            <th className="text-left py-2 px-4">About</th>
-            <th className="text-left py-2 px-4">Status</th>
-            <th className="text-left py-2 px-4">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -50,27 +50,24 @@ const Users: React.FC<IUsers> = () => {
             <td className="py-2 px-4">
               <input type="checkbox" />
             </td>
-            <td className="py-2 px-4">User 1 Info</td>
-            <td className="py-2 px-4">About User 1</td>
-            <td className="py-2 px-4">Active</td>
-            <td className="py-2 px-4">
-              <button className=" text-white font-bold py-1 px-2 rounded">
+            <td className="py-2 px-2 flex flex-1">
+            <img
+                    className=" w-auto"
+                    src="/src/assets/icons/Delete_Button.svg"
+                    alt="Your Company"
+                  />
+              <h2 className="pt-2">user info</h2>
+              </td>
+            <td className="py-2 px-2">About User 1</td>
+            <td className="py-2 px-2">Active</td>
+            <td className="py-2 px-2 end-0">
+              <button className=" text-white font-bold py-1 px-2 rounded mr-2">
               <img
                     className="h-8 w-auto"
                     src="/src/assets/icons/Delete_Button.svg"
                     alt="Your Company"
                   />
               </button>
-            </td>
-          </tr>
-          <tr className="border-b border-gray-300">
-            <td className="py-2 px-4">
-              <input type="checkbox" />
-            </td>
-            <td className="py-2 px-4">User 2 Info</td>
-            <td className="py-2 px-4">About User 2</td>
-            <td className="py-2 px-4">Inactive</td>
-            <td className="py-2 px-4">
               <button className=" text-white font-bold py-1 px-2 rounded">
               <img
                     className="h-8 w-auto"
@@ -80,6 +77,8 @@ const Users: React.FC<IUsers> = () => {
               </button>
             </td>
           </tr>
+        
+          {/* Add more rows as needed */}
         </tbody>
       </table>
     </div>
