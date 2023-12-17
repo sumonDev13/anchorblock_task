@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-// import type { Pokemon } from './types'
 
 // Define a service using a base URL and expected endpoints
 export const authApi = createApi({
@@ -9,7 +8,7 @@ export const authApi = createApi({
     signinUser: builder.mutation({
       query: (body: { email: string; password: string }) => {
         return {
-          url: "/user/signin",
+          url: "/api/login",
           method: "post",
           body,
         };

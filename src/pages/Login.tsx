@@ -1,43 +1,31 @@
-import { useSigninUserMutation } from "../store/api/authApi";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-
+import { useSigninUserMutation } from "../store/api/authApi";
 
 interface login {
   name: string;
 }
 const Login: React.FC<login> = () => {
-
   const navigate = useNavigate();
-  const [error, setError] = useState<string>('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const [signinUser, { data}] =
-    useSigninUserMutation();
+  const [signinUser, { data }] = useSigninUserMutation();
 
-    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-      event.preventDefault();
-      const formData = new FormData(event.currentTarget);
-      const email = formData.get('email') as string;
-      const password = formData.get('password') as string;
-  
-      try {
-        const response = await signinUser({ email, password });
-        // Handle response as needed
-        if (response.data.success) {
-          // Navigate to another page on successful login
-          navigate('/users'); // Replace '/dashboard' with your desired route
-        } else {
-          setError('Login failed. Please try again.'); // Set appropriate error message
-        }
-      } catch (error) {
-        // Handle error
-      }
-    };
-
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      const { data } = await signinUser({ email, password });
+      console.log("Logged in:", data);
+      navigate("/users");
+    } catch (error) {
+      console.error("Login failed:", error);
+    }
+  };
 
   return (
     <>
-     <div className="flex justify-center items-center h-screen">
+      <div className="flex justify-center items-center h-screen">
         <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-8 w-96">
           <div className="flex items-start mb-6">
             <img
@@ -50,7 +38,8 @@ const Login: React.FC<login> = () => {
           <p className="text-lg font-semibold text-customBlack mb-4 text tracking-wide">
             Sign in to continue with Stack
           </p>
-          <form >
+
+          <form onSubmit={handleLogin}>
             <div className="mb-4 mt-10">
               <label
                 className="block text-levelBlack text-sm font-semibold text tracking-wide mb-2"
@@ -63,6 +52,8 @@ const Login: React.FC<login> = () => {
                 id="email"
                 type="email"
                 placeholder="Enter email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className="mb-10 mt-8 ">
@@ -77,6 +68,8 @@ const Login: React.FC<login> = () => {
                 id="password"
                 type="password"
                 placeholder="Enter password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <div>
@@ -100,7 +93,7 @@ const Login: React.FC<login> = () => {
         </div>
       </div>
     </>
-  )
+  );
 };
 
 export default Login;
