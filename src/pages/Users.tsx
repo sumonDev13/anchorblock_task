@@ -56,14 +56,14 @@ const {data:userData}=useFetchUsersQuery()
               <input type="checkbox" />
             </td>
             <td className="py-2 px-2 flex flex-1">
+              <div className="w-10 h-10 mr-4 rounded-full overflow-hidden">
             <img
-                    className=" w-auto"
-                    src="/src/assets/icons/Delete_Button.svg"
-                    alt="Your Company"
+            src={user.avatar} alt="User Avatar" className="w-full h-full object-cover"
                   />
+                  </div>
               <h2 className="pt-2">{user.first_name} {user.last_name}</h2>
               </td>
-            <td className="py-2 px-2">About User 1</td>
+            <td className="py-2 px-2">{user.email}</td>
             <td className="py-2 px-2">Active</td>
             <td className="py-2 px-2 end-0">
               <button className=" text-white font-bold py-1 px-2 rounded mr-2">
