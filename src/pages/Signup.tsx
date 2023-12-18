@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSignupUserMutation } from "../store/api/authApi";
+import { toast } from 'react-toastify';
 
 interface ISignup {
   email: string;
@@ -24,6 +25,16 @@ const SignUp: React.FC<ISignup> = () => {
       //@ts-expect-error
       const { data } = await signupUser({ email, password });
       console.log("Signed up:", data);
+      toast.success('SuccessFully registered!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
       navigate("/"); 
     } catch (error) {
       console.error("Signup failed:", error);

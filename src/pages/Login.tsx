@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useSigninUserMutation } from "../store/api/authApi";
 import { setToken } from "../store/state/authSlice";
 import { useAppDispatch } from "../store/hook";
+import { toast } from 'react-toastify';
 
 
 interface ILogin {
@@ -27,6 +28,16 @@ const Login: React.FC<ILogin> = () => {
       console.log("Logged in:", data);
       dispatch(setToken({token:data.token}));
       navigate("/users");
+      toast.success('Login Successful!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
       localStorage.setItem("token", data.token);
     } catch (error) {
       console.error("Login failed:", error);
