@@ -1,6 +1,9 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { clearToken } from "../store/state/authSlice";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 interface INavbar {
   name: string;
@@ -19,6 +22,18 @@ function classNames(...classes: string[]) {
 }
 
 const Navbar: React.FC<INavbar> = () => {
+
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const signout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+    dispatch(clearToken());
+  };
+
+
+
   return (
     <Disclosure as="nav" className="bg-customPurple  ">
       {({ open }) => (
@@ -152,6 +167,7 @@ const Navbar: React.FC<INavbar> = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <a
+                          onClick={signout}
                             href="#"
                             className={classNames(
                               active ? "bg-gray-100" : "",
