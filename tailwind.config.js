@@ -11,7 +11,8 @@ export default {
         lightPurple: '#7F56D9',
         customBlack: '#404040',
         black:'#4E5D78',
-        levelBlack:'#344054'
+        levelBlack:'#344054',
+        tableBlack:"667085"
       },
     },
   },

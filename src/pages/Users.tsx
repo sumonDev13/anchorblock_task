@@ -49,9 +49,9 @@ const {data:userData}=useFetchUsersQuery()
             src="/src/assets/icons/Checkbox.svg" alt="User Avatar" className="h-5 w-auto ml-1 object-cover"
                   />
             </th>
-            <th className="py-2 px-2 text-left">UserInfo</th>
-            <th className="py-2 px-2 text-left">About</th>
-            <th className="py-2 px-2 text-left">Status</th>
+            <th className="py-2 px-2 text-left text-tableBlack text-sm">UserInfo</th>
+            <th className="py-2 px-2 text-left text-tableBlack text-sm">About</th>
+            <th className="py-2 px-2 text-left text-tableBlack text-sm">Status</th>
             
           </tr>
         </thead>
@@ -63,12 +63,15 @@ const {data:userData}=useFetchUsersQuery()
               <input type="checkbox" />
             </td>
             <td className="py-2 px-2 flex flex-1">
-              <div className="w-10 h-10 mr-4 rounded-full overflow-hidden">
+              <div className="w-10 h-10 mr-4 mt-3 rounded-full overflow-hidden">
             <img
             src={user.avatar} alt="User Avatar" className="w-full h-full object-cover"
                   />
                   </div>
-              <h2 className="pt-2">{user.first_name} {user.last_name}</h2>
+                  <div>
+              <p className="pt-2 font-bold">{user.first_name} {user.last_name}</p>
+              <p className="pt-2 text-tableBlack text-sm">{user.email}</p>
+              </div>
               </td>
             <td className="py-2 px-2">{user.email}</td>
             <td className="py-2 px-2">Active</td>
