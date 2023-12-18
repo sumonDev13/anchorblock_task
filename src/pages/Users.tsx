@@ -41,7 +41,11 @@ const {data:userData}=useFetchUsersQuery()
       <table className="min-w-full border border-gray-300">
         <thead>
           <tr className="border-b border-gray-300">
-            <th className="py-2 px-2 text-left">Checkbox</th>
+            <th className="py-2 px-2 text-left w-10">
+            <img
+            src="/src/assets/icons/Checkbox.svg" alt="User Avatar" className="h-5 w-auto ml-1 object-cover"
+                  />
+            </th>
             <th className="py-2 px-2 text-left">UserInfo</th>
             <th className="py-2 px-2 text-left">About</th>
             <th className="py-2 px-2 text-left">Status</th>
@@ -65,7 +69,7 @@ const {data:userData}=useFetchUsersQuery()
               </td>
             <td className="py-2 px-2">{user.email}</td>
             <td className="py-2 px-2">Active</td>
-            <td className="py-2 px-2 end-0">
+            <td className="py-2 px-2 end-0 ">
               <button className=" text-white font-bold py-1 px-2 rounded mr-2">
               <img
                     className="h-8 w-auto"
