@@ -23,18 +23,7 @@ export const authApi = createApi({
         };
       },
     }),
-
-    verifyUser: builder.mutation({
-      query: (body: { token: string }) => {
-        console.log(body.token);
-
-        return {
-          url: "/user/verfiy-user-mail",
-          method: "post",
-          body,
-        };
-      },
-    }),
+    
     userList: builder.query<{ data: any[] }, void>({
       query: () => "/api/users?page=2", // Modify the URL according to your API endpoint
     }),

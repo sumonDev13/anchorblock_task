@@ -1,6 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useSigninUserMutation } from "../store/api/authApi";
+import { setToken } from "../store/state/authSlice";
+import { useAppDispatch } from "../store/hook";
+
 
 interface login {
   name: string;
@@ -9,6 +12,7 @@ const Login: React.FC<login> = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useAppDispatch()
 
   const [signinUser, { data }] = useSigninUserMutation();
 
@@ -17,7 +21,9 @@ const Login: React.FC<login> = () => {
     try {
       const { data } = await signinUser({ email, password });
       console.log("Logged in:", data);
+      dispatch(setToken({token:data.token}));
       navigate("/users");
+      localStorage.setItem("token", data.token);
     } catch (error) {
       console.error("Login failed:", error);
     }
