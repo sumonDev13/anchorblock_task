@@ -10,8 +10,8 @@ interface INavbar {
 }
 
 const navigation = [
-  { name: "Home", href: "#", current: true },
-  { name: "Users", href: "#", current: false },
+  { name: "Dashboard", href: "/dashboard", current: false },
+  { name: "Users", href: "/users", current: true },
   { name: "Projects", href: "#", current: false },
   { name: "Tasks", href: "#", current: false },
   { name: "Reporting", href: "#", current: false },
