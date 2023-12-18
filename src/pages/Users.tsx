@@ -2,7 +2,10 @@ import Navbar from "../components/Navbar";
 import { useFetchUsersQuery } from "../store/api/userApi";
 
 interface IUsers {
-  name: string;
+  email: string;
+  first_name: string;
+  last_name: string;
+  avatar: string;
 }
 
 const Users: React.FC<IUsers> = () => {
@@ -53,8 +56,8 @@ const {data:userData}=useFetchUsersQuery()
           </tr>
         </thead>
         <tbody>
-          {/* Example rows */}
-          {userData?.data.map((user: IUser) => (
+          
+          {userData?.data.map((user: IUsers) => (
           <tr className="border-b border-gray-300">
             <td className="py-2 px-4">
               <input type="checkbox" />

@@ -12,9 +12,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login name={""} />} />
-        <Route path="/signup" element={<Signup name={""} />} />
-       {token && <Route path="/users" element={<Users name={""} />} />}
+        <Route path="/" element={<Login email={""} password={""} />} />
+        <Route path="/signup" element={<Signup email={""} password={""}/>} />
+       {token && <Route path="/users" element={<Users email={""} first_name={""} last_name={""} avatar={""} />} />}
        {token &&  <Route path="/dashboard" element={<Dashboard name={""} />} />}
         <Route path="/navbar" element={<Navbar name={""} />} />
       </Routes>

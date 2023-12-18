@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useSigninUserMutation } from "../store/api/authApi";
@@ -5,20 +7,22 @@ import { setToken } from "../store/state/authSlice";
 import { useAppDispatch } from "../store/hook";
 
 
-interface login {
-  name: string;
+interface ILogin {
+  email: string;
+  password: string;
 }
-const Login: React.FC<login> = () => {
+const Login: React.FC<ILogin> = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useAppDispatch()
 
-  const [signinUser, { data }] = useSigninUserMutation();
+  const [signinUser] = useSigninUserMutation();
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
+      //@ts-expect-error
       const { data } = await signinUser({ email, password });
       console.log("Logged in:", data);
       dispatch(setToken({token:data.token}));

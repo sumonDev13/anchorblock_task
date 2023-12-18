@@ -2,25 +2,29 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSignupUserMutation } from "../store/api/authApi";
 
-interface signup {
-  name: string;
+interface ISignup {
+  email: string;
+  password: string;
 }
 
-const SignUp: React.FC<signup> = () => {
+const SignUp: React.FC<ISignup> = () => {
 
 
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [signupUser, { data}] = useSignupUserMutation();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [signupUser] = useSignupUserMutation();
 
   const handleSignup = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-expect-error
       const { data } = await signupUser({ email, password });
       console.log("Signed up:", data);
-      navigate("/dashboard"); 
+      navigate("/"); 
     } catch (error) {
       console.error("Signup failed:", error);
     }
