@@ -69,7 +69,7 @@ const {data:userData}=useFetchUsersQuery()
                   />
                   </div>
                   <div>
-              <p className="pt-2 font-bold">{user.first_name} {user.last_name}</p>
+              <p className="pt-2 font-medium">{user.first_name} {user.last_name}</p>
               <p className="pt-2 text-tableBlack text-sm">{user.email}</p>
               </div>
               </td>
